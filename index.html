@@ -9,111 +9,294 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     }
     body {
-      background: linear-gradient(135deg, #1f2937, #111827);
+      background: radial-gradient(circle at top left, #1e293b, #0f172a);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      color: #333;
+      min-height: 100vh;
+      padding: 20px;
     }
     .login-card {
       background: #ffffff;
-      padding: 36px 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      padding: 40px 32px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 360px;
+      max-width: 400px;
     }
-    .login-card h2 {
-      margin-bottom: 24px;
+    .header-area {
       text-align: center;
-      font-size: 24px;
-      color: #111827;
+      margin-bottom: 28px;
     }
+    .header-area h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .header-area p {
+      font-size: 14px;
+      color: #64748b;
+    }
+    .btn-google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-google:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+    .btn-google svg {
+      width: 18px;
+      height: 18px;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 24px 0;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .divider::before { margin-right: 12px; }
+    .divider::after { margin-left: 12px; }
     .input-group {
       margin-bottom: 18px;
     }
     .input-group label {
       display: block;
       font-size: 13px;
-      margin-bottom: 6px;
-      color: #4b5563;
       font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    .password-wrapper {
+      position: relative;
     }
     .input-group input {
       width: 100%;
-      padding: 11px 14px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
+      padding: 12px 14px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
       font-size: 14px;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s ease;
+    }
+    .password-wrapper input {
+      padding-right: 42px;
     }
     .input-group input:focus {
       border-color: #2563eb;
     }
+    .toggle-pass {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      color: #64748b;
+    }
+    .options-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #475569;
+      cursor: pointer;
+    }
+    .remember-me input {
+      accent-color: #2563eb;
+    }
+    .forgot-link {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
     .btn-submit {
       width: 100%;
-      padding: 12px;
+      padding: 13px;
       background-color: #2563eb;
       color: #ffffff;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s ease;
     }
     .btn-submit:hover {
       background-color: #1d4ed8;
     }
-    .message {
-      margin-top: 14px;
+    .bottom-text {
       text-align: center;
-      font-size: 14px;
-      min-height: 20px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .bottom-text a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .bottom-text a:hover {
+      text-decoration: underline;
+    }
+    .alert-box {
+      margin-top: 16px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      text-align: center;
+      display: none;
     }
   </style>
 </head>
 <body>
 
   <div class="login-card">
-    <h2>เข้าสู่ระบบ</h2>
+    <div class="header-area">
+      <h2>ยินดีต้อนรับกลับมา</h2>
+      <p>กรุณากรอกข้อมูลเพื่อเข้าใช้งานระบบ</p>
+    </div>
+
+    <!-- ปุ่ม Sign in with Google -->
+    <button type="button" class="btn-google" id="btnGoogle">
+      <svg viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.36 7.33 24 12 24z"/>
+        <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.97 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+      </svg>
+      เข้าสู่ระบบด้วย Google
+    </button>
+
+    <div class="divider">หรือเข้าสู่ระบบด้วยอีเมล</div>
+
     <form id="loginForm">
       <div class="input-group">
-        <label for="username">ชื่อผู้ใช้ / อีเมล</label>
-        <input type="text" id="username" placeholder="ระบุชื่อผู้ใช้" required>
+        <label for="email">อีเมล</label>
+        <input type="email" id="email" placeholder="name@example.com" required>
       </div>
+
       <div class="input-group">
         <label for="password">รหัสผ่าน</label>
-        <input type="password" id="password" placeholder="ระบุรหัสผ่าน" required>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="••••••••" required>
+          <button type="button" class="toggle-pass" id="togglePass" aria-label="Toggle Password">
+            👁️
+          </button>
+        </div>
       </div>
-      <button type="submit" class="btn-submit">Login</button>
-      <div id="statusMessage" class="message"></div>
+
+      <div class="options-row">
+        <label class="remember-me">
+          <input type="checkbox" id="remember"> จำฉันไว้
+        </label>
+        <a href="#" class="forgot-link" id="forgotLink">ลืมรหัสผ่าน?</a>
+      </div>
+
+      <button type="submit" class="btn-submit">เข้าสู่ระบบ</button>
+
+      <div id="alertBox" class="alert-box"></div>
     </form>
+
+    <div class="bottom-text">
+      ยังไม่มีบัญชีใช่ไหม? <a href="#" id="registerLink">สมัครสมาชิก</a>
+    </div>
   </div>
 
   <script>
     const form = document.getElementById('loginForm');
-    const msg = document.getElementById('statusMessage');
+    const alertBox = document.getElementById('alertBox');
+    const togglePass = document.getElementById('togglePass');
+    const passInput = document.getElementById('password');
+    const forgotLink = document.getElementById('forgotLink');
+    const registerLink = document.getElementById('registerLink');
+    const btnGoogle = document.getElementById('btnGoogle');
 
-    form.addEventListener('submit', function(e) {
+    // ฟังก์ชันซ่อน/แสดงรหัสผ่าน
+    togglePass.addEventListener('click', () => {
+      const isPassword = passInput.getAttribute('type') === 'password';
+      passInput.setAttribute('type', isPassword ? 'text' : 'password');
+      togglePass.innerText = isPassword ? '🙈' : '👁️';
+    });
+
+    // แจ้งเตือนเมื่อกดปุ่ม Google
+    btnGoogle.addEventListener('click', () => {
+      showAlert('ระบบ Google Sign-in ต้องเชื่อมต่อ Backend หรือ Firebase Authentication', '#0284c7', '#e0f2fe');
+    });
+
+    // แจ้งเตือนเมื่อกดลืมรหัสผ่าน
+    forgotLink.addEventListener('click', (e) => {
       e.preventDefault();
-      const username = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-
-      // ตัวอย่างการจำลองตรวจชื่อและรหัสผ่านง่ายๆ ในฝั่ง Client
-      if (username === 'admin' && pass === '1234') {
-        msg.style.color = '#16a34a';
-        msg.innerText = 'เข้าสู่ระบบสำเร็จ!';
+      const email = document.getElementById('email').value;
+      if (!email) {
+        showAlert('กรุณากรอกอีเมลในช่องด้านบนก่อนกดลืมรหัสผ่าน', '#dc2626', '#fee2e2');
       } else {
-        msg.style.color = '#dc2626';
-        msg.innerText = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
+        showAlert(`ระบบจำลอง: ลิงก์รีเซ็ตรหัสผ่านถูกส่งไปยัง ${email} แล้ว`, '#16a34a', '#dcfce7');
       }
     });
+
+    // แจ้งเตือนเมื่อกดสมัครสมาชิก
+    registerLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      showAlert('จำลองการสลับไปยังหน้าสร้างบัญชีใหม่', '#4b5563', '#f3f4f6');
+    });
+
+    // จัดการ Submit ฟอร์ม
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const pass = passInput.value;
+
+      if (email === 'admin@gmail.com' && pass === '1234') {
+        showAlert('เข้าสู่ระบบสำเร็จ! กำลังเข้าสู่หน้าแดชบอร์ด...', '#16a34a', '#dcfce7');
+      } else {
+        showAlert('อีเมลหรือรหัสผ่านไม่ถูกต้อง (ลอง admin@gmail.com / 1234)', '#dc2626', '#fee2e2');
+      }
+    });
+
+    function showAlert(text, color, bgColor) {
+      alertBox.style.display = 'block';
+      alertBox.style.color = color;
+      alertBox.style.backgroundColor = bgColor;
+      alertBox.innerText = text;
+    }
   </script>
 
 </body>
