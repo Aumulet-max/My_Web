@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ชำระเงินและแนบสลิป</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>สแกนชำระเงิน</h2>
+    <p class="subtext">สแกนชำระผ่านแอปธนาคารและแนบสลิป</p>
+
+    <div class="pay-details">
+      <div><b>ชื่อ:</b> <span id="displayName">-</span></div>
+      <div><b>รหัส:</b> <span id="displayId">-</span></div>
+      <div><b>ยอดค้างชำระ:</b> <span id="displayAmount" style="color: #dc2626; font-weight: 700; font-size: 16px;">-</span> บาท</div>
+    </div>
+
+    <!-- แก้ไขบรรทัดนี้: เติม id="qrImage" ลงไป -->
+    <div class="qr-card">
+    <div class="qr-crop-wrapper">
+        <img id="qrImage" src="bank-qr.png" alt="QR Code ธนาคาร">
+    </div>
+    <div style="font-size: 13px; color: #475569; font-weight: 600;">บัญชีรับเงินห้อง / กีฬาสี</div>
+    </div>
+
+    <!-- กล่องอัปโหลดสลิป -->
+    <div class="upload-section">
+      <div style="font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 8px;">แนบสลิปหลักฐานการโอน</div>
+      
+      <label for="slipInput" class="btn-choose-file" id="chooseLabel">เลือกรูปภาพสลิป</label>
+      <input type="file" id="slipInput" class="file-input" accept="image/*">
+      <div id="fileNameDisplay" style="font-size: 12px; color: #64748b;">ยังไม่ได้เลือกไฟล์</div>
+
+      <button type="button" class="my-btn btn-upload" id="submitSlipBtn" disabled>ส่งหลักฐานสลิป</button>
+      <div id="uploadStatus" class="status-msg"></div>
+    </div>
+
+    <div class="btn-container">
+      <a href="index.html" class="my-btn btn-back">ย้อนกลับ</a>
+    </div>
+  </div>
+<script src="payment.js"></script>
+</body>
+</html>
